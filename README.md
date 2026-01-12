@@ -18,6 +18,12 @@ This project transforms noisy job batches into audit‑safe, narratable datasets
 | `md_exporter.py`        | Exports markdown slices for each job and platform                        | `job_markdowns/`, `platform_markdowns/` |
 | `run_pipeline.py`       | Full pipeline runner: loads, filters, enriches, and exports              | `benchmarked_batch.json` |
 
+## 🚀 Running the Pipeline
+
+To run the full enrichment pipeline, place your raw job data in `rawfeed_batch.json` at the root of the project directory. Then execute:
+
+    python run_pipeline.py
+
 ## 📦 Outputs
 
 - JSON: deduplicated, suppressed, and enriched batches  
