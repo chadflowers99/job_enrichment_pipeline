@@ -1,0 +1,17 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Logs
+*.log
+
+# Databases (runtime artifacts)
+*.db
+
+# Output artifacts (optional to ignore)
+*.csv
+*.json
+
+# OS junk
+.DS_Store
+Thumbs.db
