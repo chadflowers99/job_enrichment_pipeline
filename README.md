@@ -31,8 +31,7 @@ This project transforms noisy job batches into audit‑safe, narratable datasets
 - JSON: deduplicated, suppressed, and enriched batches  
 - Markdown: recruiter‑friendly summaries and individual entries  
 - SQLite: structured querying and dashboard‑ready data  
-- All artifacts appear directly in the project directory  
-- A small sample batch can be added to `rawfeed_batch.json/` to demonstrate the pipeline without external APIs  
+- All artifacts appear directly in the project directory    
 
 ## 🧼 Design Philosophy
 
