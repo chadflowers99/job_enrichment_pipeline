@@ -20,7 +20,7 @@ This project transforms noisy job batches into audit‑safe, narratable datasets
 
 🚀 Running the Pipeline
 - Take the role or job description you want to enrich.
-- Use the current rawfeed_batch.json as a template (or convert it using AI).
+- Use the current rawfeed_batch.json as a template (convert it using AI).
 - Save the updated content into rawfeed_batch.json at the project root.
 - Run:
 
