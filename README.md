@@ -6,17 +6,17 @@ A suppressor‑aware, modular pipeline for deduplicating, filtering, enriching, 
 
 This project transforms noisy job batches into audit‑safe, narratable datasets. It reflects my engineering philosophy: suppressor‑aware clarity, schema hygiene, and markdown storytelling.
 
-## 🧩 Modules at a Glance
+## 🧩 Modules at a Glance (Pipeline Stages)
 
-| Module                 | Purpose                                                                 | Output                                   |
-|------------------------|-------------------------------------------------------------------------|-------------------------------------------|
-| `deduplication_stub.py` | Cleans encodings, suppresses malformed entries, deduplicates            | `deduped_batch.json`, `suppressed_batch.json` |
-| `filter_entries.py`     | Helper functions for role/tech filtering, saturation checks, suppressor logic | Used by `benchmark_runner.py` |
-| `benchmark_runner.py`   | Orchestrates enrichment: scoring, filtering, narration                   | `benchmarked_batch.json` |
-| `narrate_batch.py`      | Generates markdown summaries with signal buckets                         | `infra_batch_summary.md` |
-| `sql_import.py`         | Imports enriched data into SQLite                                        | `jobs.db` |
-| `md_exporter.py`        | Exports markdown slices for each job and platform                        | `job_markdowns/`, `platform_markdowns/` |
-| `run_pipeline.py`       | Full pipeline runner: loads, filters, enriches, and exports              | `benchmarked_batch.json` |
+| Module                 | Pipeline Stage        | Purpose                                                                 | Output                                   |
+|------------------------|------------------------|-------------------------------------------------------------------------|-------------------------------------------|
+| `deduplication_stub.py` | **Stage 1 — Hygiene**     | Cleans encodings, patches corrupted text, suppresses malformed entries, deduplicates | `deduped_batch.json`, `suppressed_batch.json` |
+| `filter_entries.py`     | **Helper Library**        | Role‑tag filters, tech‑stack filters, saturation checks, unfamiliar‑tech suppressor | Used by `benchmark_runner.py` |
+| `benchmark_runner.py`   | **Stage 2 — Enrichment**  | Applies filters, scores jobs and platforms, normalizes fields, narrates suppressions | `benchmarked_batch.json` |
+| `narrate_batch.py`      | **Stage 3 — Summary**     | Generates batch‑level markdown summary with score buckets and suppression breakdown | `infra_batch_summary.md` |
+| `sql_import.py`         | **Stage 4 — Persistence** | Loads enriched data into SQLite for querying and dashboard use          | `jobs.db` |
+| `md_exporter.py`        | **Stage 5 — Presentation**| Exports one markdown file per job and platform                          | `job_markdowns/`, `platform_markdowns/` |
+| `run_pipeline.py`       | **Orchestrator**          | Runs all pipeline stages in sequence, halting on failure                | Full pipeline output |
 
 🚀 Running the Pipeline
 - Take the role or job description you want to enrich.
