@@ -18,7 +18,7 @@ This project transforms noisy job batches into audit‑safe, narratable datasets
 | `md_exporter.py`        | **Stage 5 — Presentation**| Exports one markdown file per job and platform                          | `job_markdowns/`, `platform_markdowns/` |
 | `run_pipeline.py`       | **Orchestrator**          | Runs all pipeline stages in sequence, halting on failure                | Full pipeline output |
 
-🚀 Running the Pipeline  
+## 🚀 Running the Pipeline  
 - Take the role or job description you want to enrich.  
 - Use the current rawfeed_batch.json as a template (convert it using AI).  
 - Save the updated content into rawfeed_batch.json at the project root.  
