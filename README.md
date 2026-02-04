@@ -18,20 +18,57 @@ This project transforms noisy job batches into audit‑safe, narratable datasets
 | `md_exporter.py`        | **Stage 5 — Presentation**| Exports one markdown file per job and platform                          | `job_markdowns/`, `platform_markdowns/` |
 | `run_pipeline.py`       | **Orchestrator**          | Runs all pipeline stages in sequence, halting on failure                | Full pipeline output |
 
-🚀 Running the Pipeline
-- Take the role or job description you want to enrich.
-- Use the current rawfeed_batch.json as a template (convert it using AI).
-- Save the updated content into rawfeed_batch.json at the project root.
-- Run:
-
+🚀 Running the Pipeline  
+- Take the role or job description you want to enrich.  
+- Use the current rawfeed_batch.json as a template (convert it using AI).  
+- Save the updated content into rawfeed_batch.json at the project root.  
+- Run:  
     python run_pipeline.py
+
+## 📡 Platform Intelligence Profiles
+
+In addition to job‑level enrichment, the pipeline supports platform‑level intelligence.  
+These entries are not scraped from APIs — they are qualitative, suppressor‑aware evaluations of job platforms based on:  
+- role density  
+- schema consistency  
+- tech‑stack transparency  
+- suppressor saturation  
+- contract hygiene  
+- platform behavior and drift patterns  
+
+Each platform is represented as a structured JSON object:
+
+```json
+{
+  "platform_id": "",
+  "name": "",
+  "website": "",
+  "platform_type": "",
+  "infra_role_density": "",
+  "tooling_transparency": "",
+  "contract_hygiene": "",
+  "suppressor_saturation": "",
+  "tech_stack_coverage": [],
+  "schema_drift_notes": "",
+  "ideal_for": [],
+  "notes": ""
+}
+```
+
+Platform profiles allow the pipeline to:  
+- benchmark platforms alongside jobs  
+- narrate platform‑level suppressions  
+- generate markdown summaries for recruiter‑ready review  
+- support future agentic workflows (e.g., platform selection, sourcing strategy, noise‑aware job scouting)  
+
+Platform entries live in rawfeed_batch.json alongside job entries and flow through the same enrichment and narration stages.
 
 ## 📦 Outputs
 
 - JSON: deduplicated, suppressed, and enriched batches  
 - Markdown: recruiter‑friendly summaries and individual entries  
 - SQLite: structured querying and dashboard‑ready data  
-- All artifacts appear directly in the project directory    
+- All artifacts appear directly in the project directory  
 
 ## 🧼 Design Philosophy
 
