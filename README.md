@@ -21,14 +21,17 @@ This project transforms noisy job batches into audit‑safe, narratable datasets
 ## 🚀 Running the Pipeline
 
 - Take the role or job description you want to enrich.
-- Use the current rawfeed_batch.json as a template (convert it using AI).
-- Save the updated content into rawfeed_batch.json at the project root.
-- Run: python run_pipeline.py
+- Use the current `rawfeed_batch.json` as a template (convert it using AI).
+- Save the updated content into `rawfeed_batch.json` at the project root.
+- Run:
+
+    python run_pipeline.py
 
 ## 🧱 Job Entry Format (JSON Schema)
 
 Each job entry in `rawfeed_batch.json` follows this structure:
 
+```json
 {
   "job_id": "",
   "title": "",
@@ -46,6 +49,7 @@ Each job entry in `rawfeed_batch.json` follows this structure:
   "link_count": 0,
   "notes": ""
 }
+```
 
 ### Field Notes
 - **job_id** — unique identifier for the job  
@@ -72,6 +76,8 @@ These entries are not scraped from APIs — they are qualitative, suppressor‑a
 
 Each platform entry in rawfeed_batch.json follows this structure:
 
+
+```json
 {
   "platform_id": "",
   "name": "",
@@ -86,6 +92,7 @@ Each platform entry in rawfeed_batch.json follows this structure:
   "ideal_for": [],
   "notes": ""
 }
+```
 
 ### Field Notes
 - **platform_type** — classification of the platform (job board, talent marketplace, staffing aggregator)
