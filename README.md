@@ -25,7 +25,9 @@ This project transforms noisy job batches into audit‑safe, narratable datasets
 - Save the updated content into `rawfeed_batch.json` at the project root.
 - Run:
 
-    python run_pipeline.py
+```bash
+python run_pipeline.py
+```
 
 ## 🧱 Job Entry Format (JSON Schema)
 
